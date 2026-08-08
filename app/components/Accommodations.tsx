@@ -7,23 +7,36 @@ import { Wifi, Snowflake, Tv, Coffee, Bath, ChevronRight, ChevronLeft } from "lu
 const accommodations = [
   {
     title: "Premier Family Suite with Mountain View",
+    subtitle: "Double Occupancy",
     images: [
       "/accommodations/premier-family-suite.jpg",
       "/accommodations/premier-family-suite-2.jpg"
     ],
-    description: "Featuring two spacious bedrooms for up to 4 adults and 2 children, this elegant family suite offers breathtaking Chembra Peak and mountain views. Thoughtfully designed for comfort and relaxation, it’s the perfect retreat for a memorable family stay.",
+    description: "Featuring two spacious bedrooms for up to 4 adults and 2 children, this elegant family suite offers breathtaking Chembra Peak and mountain views. Thoughtfully designed for comfort and relaxation, it's the perfect retreat for a memorable family stay.",
+    units: 2,
+    withoutBreakfast: "₹6,500",
+    withBreakfast: "₹6,900",
+    breakfastNote: "Breakfast for 2 persons",
+    extraBed: "₹500",
   },
   {
     title: "Grand Family Suite with Mountain View",
+    subtitle: "Double Occupancy",
     images: [
       "/accommodations/grand-family-suite.jpg",
       "/accommodations/grand-family-suite-2.jpg",
       "/accommodations/grand-family-suite-3.jpg"
     ],
     description: "Our three-bedroom Grand Family Suite comfortably accommodates up to 6 adults and 2 children, offering breathtaking mountain views and spacious interiors. Designed for larger families, it combines modern comfort, privacy, and the serene beauty of Chembra Peak for a truly memorable stay.",
+    units: 2,
+    withoutBreakfast: "₹7,500",
+    withBreakfast: "₹7,900",
+    breakfastNote: "Breakfast for 2 persons",
+    extraBed: "₹500",
   },
   {
     title: "Private Pool Villa",
+    subtitle: "Breakfast Included",
     images: [
       "/accommodations/private-pool-villa.jpg",
       "/accommodations/pool-villa-1.jpg",
@@ -32,11 +45,22 @@ const accommodations = [
       "/accommodations/pool-villa-4.jpg"
     ],
     description: "Designed exclusively for couples, our Private Pool Villa – Chembra Peak View features a private swimming pool, elegant interiors, and panoramic mountain views. Unwind in complete privacy while enjoying a romantic escape surrounded by the serene beauty of Chembra Peak.",
+    units: 1,
+    withoutBreakfast: null,
+    withBreakfast: "₹10,000",
+    breakfastNote: "Breakfast Included",
+    extraBed: null,
   },
   {
     title: "Double Deluxe Room",
+    subtitle: "Double Occupancy",
     images: ["/accommodations/double-deluxe-room.jpg"],
     description: "Perfect for couples and small families of up to 2 adults, our Deluxe Mountain View Room offers a cozy and elegant retreat with breathtaking views of Chembra Peak. Thoughtfully designed with modern comforts and a peaceful ambiance.",
+    units: 3,
+    withoutBreakfast: "₹2,700",
+    withBreakfast: "₹3,100",
+    breakfastNote: "Breakfast for 2 persons",
+    extraBed: "₹500",
   },
 ];
 
@@ -141,18 +165,51 @@ function AccommodationCard({ room }: { room: any }) {
 
       {/* Content */}
       <div className="p-8 md:p-10 flex flex-col flex-grow text-center items-center">
-        <h3 
-          className="text-2xl text-[#5d3e2e] mb-4"
+        <h3
+          className="text-2xl text-[#5d3e2e] mb-1"
           style={{ fontFamily: "'Boska', serif", fontWeight: 500 }}
         >
           {room.title}
         </h3>
-        <p 
-          className="text-[#78716c] text-sm leading-[1.8] mb-8"
+        {room.subtitle && (
+          <p className="text-xs text-[#a8a29e] tracking-widest uppercase mb-4" style={{ fontFamily: "'Satoshi', sans-serif" }}>
+            {room.subtitle}
+          </p>
+        )}
+        <p
+          className="text-[#78716c] text-sm leading-[1.8] mb-6"
           style={{ fontFamily: "'Satoshi', sans-serif" }}
         >
           {room.description}
         </p>
+
+        {/* Pricing Table */}
+        <div className="w-full border border-[#e8e0d8] rounded mb-6" style={{ fontFamily: "'Satoshi', sans-serif" }}>
+          <div className="grid grid-cols-3 bg-[#f9f6f2] text-[#5d3e2e] text-[10px] uppercase tracking-widest font-semibold">
+            <div className="p-2 border-r border-[#e8e0d8]">Without Breakfast</div>
+            <div className="p-2 border-r border-[#e8e0d8]">With Breakfast</div>
+            <div className="p-2">Extra Bed</div>
+          </div>
+          <div className="grid grid-cols-3 text-[#3d2c22] text-sm font-medium">
+            <div className="p-3 border-r border-[#e8e0d8]">
+              {room.withoutBreakfast ?? <span className="text-[#a8a29e]">&mdash;</span>}
+            </div>
+            <div className="p-3 border-r border-[#e8e0d8]">
+              <span>{room.withBreakfast}</span>
+              {room.breakfastNote && (
+                <span className="block text-[10px] text-[#a8a29e] mt-0.5">{room.breakfastNote}</span>
+              )}
+            </div>
+            <div className="p-3">
+              {room.extraBed ?? <span className="text-[#a8a29e]">&mdash;</span>}
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full flex items-center justify-between text-[11px] text-[#a8a29e] mb-6 px-1" style={{ fontFamily: "'Satoshi', sans-serif" }}>
+          <span>Rates per room / night</span>
+          <span>{room.units} {room.units === 1 ? 'unit' : 'units'} available</span>
+        </div>
 
         <div className="mt-auto w-full">
           {/* Amenities Icons */}
