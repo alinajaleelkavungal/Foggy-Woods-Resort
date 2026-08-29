@@ -93,8 +93,8 @@ export default function ContactCTA() {
               className="text-[#78716c] text-sm lg:text-base leading-[2] flex-1 pt-1"
               style={{ fontFamily: "'Satoshi', sans-serif" }}
             >
-              <p className="hover:text-[#5d3e2e] cursor-pointer transition-colors w-max">+91 9074450023</p>
-              <p className="hover:text-[#5d3e2e] cursor-pointer transition-colors w-max">+91 9074410023</p>
+              <a href="tel:+919074450023" className="block hover:text-[#5d3e2e] transition-colors w-max">+91 9074450023</a>
+              <a href="tel:+919074410023" className="block hover:text-[#5d3e2e] transition-colors w-max">+91 9074410023</a>
             </div>
           </div>
 

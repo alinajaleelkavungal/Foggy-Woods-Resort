@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Menu } from "lucide-react";
+import { X, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -62,9 +62,28 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Right: CTA + Hamburger */}
-          <div className="flex items-center gap-3 md:gap-6">
-            {/* Mobile: icon-only pill | Desktop: full label */}
+          {/* Right: Call + WhatsApp + Hamburger */}
+          <div className="flex items-center gap-3 md:gap-4">
+
+            {/* Call button */}
+            <a
+              href="/#contact"
+              aria-label="Call us"
+              className={`inline-flex items-center gap-2 rounded-full font-semibold border transition-all duration-300
+                px-3 py-2 md:px-5 md:py-2
+                text-xs tracking-[0.15em] md:tracking-[0.2em] uppercase
+                ${
+                  isScrolled
+                    ? "border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white"
+                    : "border-white/70 text-white hover:bg-white hover:text-zinc-900"
+                }`}
+              style={{ fontFamily: "'Satoshi', sans-serif" }}
+            >
+              <Phone className="w-4 h-4 flex-shrink-0" strokeWidth={1.5} />
+              <span className="hidden md:inline">Call Us</span>
+            </a>
+
+            {/* WhatsApp / Book button */}
             <a
               href="https://wa.me/9074450023"
               target="_blank"
