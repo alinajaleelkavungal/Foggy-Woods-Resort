@@ -65,13 +65,13 @@ export default function Navbar() {
           {/* Right: Call + WhatsApp + Hamburger */}
           <div className="flex items-center gap-3 md:gap-4">
 
-            {/* Call button */}
+            {/* Call button — desktop only to avoid mobile congestion */}
             <a
-              href="/#contact"
+              href="tel:+919074450023"
               aria-label="Call us"
-              className={`inline-flex items-center gap-2 rounded-full font-semibold border transition-all duration-300
-                px-3 py-2 md:px-5 md:py-2
-                text-xs tracking-[0.15em] md:tracking-[0.2em] uppercase
+              className={`hidden md:inline-flex items-center gap-2 rounded-full font-semibold border transition-all duration-300
+                px-5 py-2
+                text-xs tracking-[0.2em] uppercase
                 ${
                   isScrolled
                     ? "border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white"
@@ -80,7 +80,7 @@ export default function Navbar() {
               style={{ fontFamily: "'Satoshi', sans-serif" }}
             >
               <Phone className="w-4 h-4 flex-shrink-0" strokeWidth={1.5} />
-              <span className="hidden md:inline">Call Us</span>
+              <span>Call Us</span>
             </a>
 
             {/* WhatsApp / Book button */}
