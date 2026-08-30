@@ -65,23 +65,6 @@ export default function Navbar() {
           {/* Right side */}
           <div className="flex items-center gap-3 md:gap-4">
 
-            {/* Call Us — desktop only */}
-            <a
-              href="tel:+919074450023"
-              aria-label="Call us"
-              className={`hidden md:inline-flex items-center gap-2 rounded-full font-semibold border transition-all duration-300
-                px-5 py-2 text-xs tracking-[0.2em] uppercase
-                ${
-                  isScrolled
-                    ? "border-zinc-900 text-zinc-900 hover:bg-zinc-900 hover:text-white"
-                    : "border-white/70 text-white hover:bg-white hover:text-zinc-900"
-                }`}
-              style={{ fontFamily: "'Satoshi', sans-serif" }}
-            >
-              <Phone className="w-4 h-4 flex-shrink-0" strokeWidth={1.5} />
-              <span>Call Us</span>
-            </a>
-
             {/* Book Your Stay — desktop only */}
             <a
               href="https://wa.me/9074450023"
@@ -104,11 +87,11 @@ export default function Navbar() {
               <span>Book Your Stay</span>
             </a>
 
-            {/* Hamburger — always visible */}
+            {/* Hamburger */}
             <button
               onClick={() => setSidebarOpen(true)}
               aria-label="Open navigation menu"
-              className="flex flex-col justify-center gap-[5px] w-8 h-8 group transition-colors duration-300"
+              className="flex flex-col justify-center gap-[5px] w-8 h-8 transition-colors duration-300"
             >
               <span className={`block w-7 h-[1.5px] transition-colors duration-300 ${isScrolled ? "bg-zinc-900" : "bg-white"}`} />
               <span className={`block w-5 h-[1.5px] transition-colors duration-300 ${isScrolled ? "bg-zinc-900" : "bg-white"}`} />

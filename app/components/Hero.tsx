@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { Phone } from "lucide-react";
 
 const slides = [
   {
@@ -98,7 +99,20 @@ export default function Hero() {
       })}
 
       {/* ── Overlays ── */}
-      <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+      <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
+
+      {/* ── Phone icon — below hamburger, top-right of hero ── */}
+      <a
+        href="tel:+919074450023"
+        aria-label="Call Foggy Woods Resort"
+        className="absolute top-[5.5rem] md:top-24 right-6 md:right-12 z-40
+                   w-8 h-8 flex items-center justify-center
+                   rounded-full bg-white/10 backdrop-blur-sm border border-white/20
+                   text-white hover:bg-white hover:text-zinc-900
+                   transition-all duration-300 shadow-md cursor-pointer"
+      >
+        <Phone className="w-3.5 h-3.5 pointer-events-none" strokeWidth={1.8} />
+      </a>
 
       {/* ── Hero Content ── */}
       <div className="relative z-30 h-full flex flex-col items-center justify-center text-center px-6">
