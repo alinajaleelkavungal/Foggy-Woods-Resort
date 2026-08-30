@@ -106,8 +106,8 @@ export default function Hero() {
         href="tel:+919074450023"
         aria-label="Call Foggy Woods Resort"
         className="absolute top-[5.5rem] md:top-24 right-6 md:right-12 z-40
-                   w-8 h-8 flex items-center justify-center
-                   rounded-full bg-white/10 backdrop-blur-sm border border-white/20
+                   w-8 h-8 flex items-center justify-center rounded-full
+                   bg-white/10 backdrop-blur-sm border border-white/20
                    text-white hover:bg-white hover:text-zinc-900
                    transition-all duration-300 shadow-md cursor-pointer"
       >
