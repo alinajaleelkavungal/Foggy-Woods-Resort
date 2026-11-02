@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 
 const footerLinks = {
   explore: [
@@ -10,6 +11,7 @@ const footerLinks = {
   information: [
     { label: "About Us", href: "/#the-retreat" },
     { label: "FAQ", href: "/faq" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
   ],
   contact: [
     { label: "Contact", href: "/#contact" },
@@ -53,13 +55,13 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {footerLinks.explore.map((link) => (
                 <li key={link.label}>
-                  <a 
+                  <Link 
                     href={link.href}
                     className="text-white/60 text-sm hover:text-white transition-colors duration-300"
                     style={{ fontFamily: "'Satoshi', sans-serif" }}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -76,13 +78,13 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {footerLinks.information.map((link) => (
                 <li key={link.label}>
-                  <a 
+                  <Link 
                     href={link.href}
                     className="text-white/60 text-sm hover:text-white transition-colors duration-300"
                     style={{ fontFamily: "'Satoshi', sans-serif" }}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -156,13 +158,13 @@ export default function Footer() {
               © {new Date().getFullYear()} Foggy Woods. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a 
-                href="#" 
+              <Link 
+                href="/privacy-policy" 
                 className="text-white/40 text-xs hover:text-white/60 transition-colors duration-300"
                 style={{ fontFamily: "'Satoshi', sans-serif" }}
               >
                 Privacy Policy
-              </a>
+              </Link>
               <a 
                 href="#" 
                 className="text-white/40 text-xs hover:text-white/60 transition-colors duration-300"
